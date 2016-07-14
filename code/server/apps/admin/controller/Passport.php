@@ -4,8 +4,7 @@ namespace app\admin\controller;
 /**
  * swagger: 登录相关
  */
-class Passport
-{
+class Passport {
 	/**
 	 * post: 发送验证码
 	 * path: authenticate
@@ -16,7 +15,7 @@ class Passport
 		$data = json_decode($request_body);
 //		echo 'username:'.$data->token->principal;
 //		echo 'password:'.$data->token->credentials;
-		return json([
+		$userinfo = [
 			'info' => [
 				'authc'	=> [
 					'credentials'		=> [
@@ -27,7 +26,8 @@ class Passport
 					'principal'			=> [
 						'username'		=> $data->token->principal,
 						'phone'			=> '18922864361',
-						'email'			=> 'www.wpj@163.com'
+						'email'			=> 'www.wpj@163.com',
+						'roleName'			=> '超级管理员'
 					]
 				],
 				'authz' => [
@@ -39,6 +39,14 @@ class Passport
 					]
 				]
 			]
-		]);
+		];
+		session('userinfo', $userinfo);
+
+		return json($userinfo);
+	}
+	
+	public function signout() {
+		session('userinfo', null);
+		return true;
 	}
 }

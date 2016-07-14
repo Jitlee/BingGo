@@ -8,6 +8,11 @@ angular.module("admin").controller("IndexController", [
 			return;
 		}
 		
-		$scope.content = "Hello world!"
+		$scope.content = "Hello world!";
+		
+		$scope.logout = function() {
+			subject.logout();
+			$location.path("/passport/signin");
+		}
 	}
 ]);

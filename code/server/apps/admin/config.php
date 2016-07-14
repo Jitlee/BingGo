@@ -7,5 +7,10 @@ return [
 		'__CSS__'		=> '/static/admin/css',
 		'__IMG__'		=> '/static/admin/img',
 		'__BOOT__'		=> '//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css',
-	]
+	],
+	'session'                => [
+	    'prefix'         => 'admin',
+	    'type'           => '',
+	    'auto_start'     => true,
+	],
 ];

@@ -7,6 +7,7 @@ angular.module("admin").controller("SigninController", [
     function($scope, subject, usernamePasswordToken, $location) {
 		$scope.error = "";
 		$scope.token = usernamePasswordToken;
+		$scope.token.setRememberMe(true);
 		
 		$scope.submit = function() {
 			if(validate()) {

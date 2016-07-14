@@ -11,8 +11,11 @@
 		// authenticated to
 		// access any path
 		config.setFilter("/**/*","authc");
-		config.setAuthenticateUrl("/admin/passport/authenticate");
-		config.setLoginPath("/passport/signin");
+		var configOptions = config.$get[0]();
+		configOptions.login.api = "/admin/passport/authenticate";
+		configOptions.login.path = "/passport/signin";
+		configOptions.logout.path = "/passport/signin";
+		configOptions.logout.api = "/admin/passport/signout";
 		
 		$stateProvider
 			.state("index", {
