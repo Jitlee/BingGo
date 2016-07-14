@@ -1,15 +1,16 @@
 <script src="/static/admin/tpl/passport/signin.html.js"></script>
-<div ng-controller="SigninController" class="text-center container">
+<div ng-controller="SigninController" class="text-center container box-center">
+  	<h1>BingGo</h1>
 	<h3>后台管理登陆</h3>
-	<div class="alert alert-warning" role="alert">
-		密码输入错误
-	</div>
-	<form ng-submit="submit()" novalidate>
-		<div class="form-group">
-			<input class="form-control" type="text" placeholder="用户名" required="请输入用户名" />
+	<form name="form" ng-submit="submit()" role="form" novalidate not-authenticated>
+		<div class="alert alert-danger text-left" role="alert" ng-style="{ 'visibility': error? 'visible': 'hidden' }">
+			{{ error }}
 		</div>
 		<div class="form-group">
-			<input class="form-control" type="password" placeholder="密码" required="请输入密码" />
+			<input name="username" ng-model="token.username" class="form-control" type="text" placeholder="用户名" required="请输入用户名" />
+		</div>
+		<div class="form-group">
+			<input name="password" ng-model="token.password" class="form-control" type="password" placeholder="密码" required="请输入密码" />
 		</div>
 		<button type="submit" class="btn btn-primary btn-block">登陆</button>
 	</form>

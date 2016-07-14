@@ -1,0 +1,35 @@
+// 按钮
+.btn-variant(@color) {
+    background-color: @color;
+    border-color: @color;
+    
+    &:hover,&.focus,&:focus,&.active,&:active {
+        background-color: darken(@color, 5%);
+        border-color: darken(@color, 5%);
+    }
+    
+    &.active.focus,&.active:focus,&.active:hover,&:active.focus,&:active:focus,&:active:hover {
+        background-color: darken(@color, 10%);
+        border-color: darken(@color, 10%);
+    }
+}
+
+.btn-primary {
+    .btn-variant(@color-base);
+}
+
+// 提示框
+.alert {
+    padding: 3px 5px;
+    font-size: 12px;    
+    &.alert-danger:before {
+        content: "\e082";
+        font-family: 'Glyphicons Halflings';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        vertical-align: middle;
+    }
+}

@@ -13,7 +13,7 @@
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../apps');
 
-$apiPaths = ['api']; // 至扫描api部分的文件夹
+$apiPaths = ['api', 'admin']; // 至扫描api部分的文件夹
 
 $tags = array(); // Tags对象
 $paths = array(); // Path数组

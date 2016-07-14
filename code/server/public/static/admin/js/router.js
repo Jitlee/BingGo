@@ -1,12 +1,23 @@
 ;(function() {
 	"use strict";
-	app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
+	app.config([
+	    "$stateProvider",
+	    "$urlRouterProvider",
+	    "angularShiroConfigProvider",
+	    function($stateProvider, $urlRouterProvider, config) {
 		$urlRouterProvider.otherwise("/");
+		
+		// Subject must be
+		// authenticated to
+		// access any path
+		config.setFilter("/**/*","authc");
+		config.setAuthenticateUrl("/admin/passport/authenticate");
+		config.setLoginPath("/passport/signin");
 		
 		$stateProvider
 			.state("index", {
 				url: "/",
-				template: "<h1>Hello world!</h1>"
+				templateUrl: tpl("index/index")
 			})
 			
 			// 登陆相关
