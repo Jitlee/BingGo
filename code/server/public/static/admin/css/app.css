@@ -1,3 +1,9 @@
+.menu-padding {
+  padding: 13px 20px 13px 25px;
+}
+.menu-padding-m {
+  padding: 7px 20px 7px 13px;
+}
 .btn-primary {
   background-color: #00B38C;
   border-color: #00B38C;
@@ -33,30 +39,169 @@
   -webkit-font-smoothing: antialiased;
   vertical-align: middle;
 }
+.container {
+  width: 100%;
+}
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+}
 @media (min-width: 768px) {
   .box-center.container {
     width: 300px!important;
   }
 }
+.box-center.box-signin.container h1 {
+  margin-top: 20px;
+  color: #ccc;
+  font-size: -webkit-xxx-large;
+}
 .form-control.ng-invalid.ng-touched {
   border-color: #a94442;
 }
-
-.navbar-fixed-top ~ .container {
-	padding-top: 70px;
+.navbar-nav .icon-nav-item .img-circle {
+  width: 32px;
+  height: 32px;
 }
-
-.navbar-nav .img-circle {
-	width: 32px;
-	height: 32px;
+.navbar-nav .icon-nav-item.dropdown a {
+  padding-top: 9px;
+  padding-bottom: 9px;
 }
-
-.navbar-nav .dropdown a {
-	padding-top: 9px;
-	padding-bottom: 9px;
+.main-container,
+.navbar-fixed-top {
+  margin-left: 200px;
+  -webkit-transition-property: margin-left;
+  -moz-transition-property: margin-left;
+  -o-transition-property: margin-left;
+  -ms-transition-property: margin-left;
+  transition-property: margin-left;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  -ms-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  -ms-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
-
-.box-center.container h1{
-	color: #ccc;
-	font-size: -webkit-xxx-large;
+.main-container {
+  margin-top: 50px;
+  width: initial;
+}
+.sidebar {
+  position: fixed;
+  z-index: 1031;
+  left: 0px;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  background-color: #4d5f86;
+}
+.sidebar .sidebar-header {
+  background-image: url("../img/side-header.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-color: #495A80;
+  padding: 15px 5px;
+}
+.sidebar .sidebar-header .img-circle {
+  width: 48px;
+  height: 48px;
+}
+.sidebar .sidebar-header h4 > a {
+  color: #fff;
+}
+.sidebar .sidebar-header h4 > a small {
+  display: block;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.sidebar .menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+}
+.sidebar .menu li {
+  position: relative;
+  display: block;
+}
+.sidebar .menu li a {
+  font-size: 12px;
+  color: #A2B4BA;
+  display: block;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 13px 20px 13px 25px;
+}
+.sidebar .menu li a:hover,
+.sidebar .menu li a.active {
+  background-color: #364360;
+  color: rgba(162, 180, 186, 0.8);
+}
+.sidebar .menu li a:hover:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: #008064;
+}
+.sidebar .menu li a.active:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: #00B38C;
+}
+.sidebar .menu li a .iconfont {
+  font-weight: normal;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+@media only screen and (min-width: 414px) and (max-width: 768px) {
+  .main-container,
+  .navbar-fixed-top {
+    margin-left: 50px;
+  }
+  .sidebar {
+    width: 50px;
+  }
+  .sidebar .menu li a {
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: keep-all;
+    padding: 7px 20px 7px 13px;
+  }
+  .sidebar .menu li a:hover,
+  .sidebar .menu li a.active {
+    background-color: #364360;
+    color: rgba(162, 180, 186, 0.8);
+  }
+  .sidebar .menu li a:hover:before,
+  .sidebar .menu li a.active:before {
+    display: none;
+  }
+  .sidebar .menu li a .iconfont {
+    margin-right: 20px;
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .main-container,
+  .navbar-fixed-top {
+    margin-left: 0;
+  }
+  .sidebar {
+    display: none;
+  }
 }

@@ -1,0 +1,24 @@
+<script src="/static/admin/tpl/index/side.html.js"></script>
+<div class="sidebar-header text-center" aria-expanded="false" uib-collapse="isCollapsed">
+	<h4 uib-dropdown>
+		<a id="avatar-dropdown" uib-dropdown-toggle>
+			<img src="http://www.zi-han.net/theme/hplus/img/profile_small.jpg" alt="头像" class="img-circle">
+			<div><principal class="" property="username"></principal></div>
+			<small>
+				<principal property="roleName"></principal>
+				<span class="caret"></span>
+			</small>
+		</a>
+		<ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="avatar-dropdown">
+	        <li role="menuitem"><a href="#">个人资料</a></li>
+	        <li role="menuitem"><a href="#">修改密码</a></li>
+	        <li class="divider"></li>
+	        <li role="menuitem"><a ng-href="#/signout">安全退出</a></li>
+     	</ul>
+	</h4>
+</div>
+<ul class="menu" ng-controller="SideController">
+	<li ng-repeat="menu in menus">
+		<a ng-class="{ 'active': $state.$current.url.source == menu.href }" ng-href="#{{ menu.href }}"><i class="iconfont {{ menu.icon }}"></i>{{ menu.title }}</a>
+	</li>
+</ul>

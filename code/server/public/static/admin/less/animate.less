@@ -1,0 +1,20 @@
+// transition 动画
+.transition(@property, @duration: 0.2s) {
+    -webkit-transition-property+: @property;
+    -moz-transition-property+: @property;
+    -o-transition-property+: @property;
+    -ms-transition-property+: @property;
+    transition-property+: @property;
+    
+    -webkit-transition-timing-function: ease-in-out;  
+    -moz-transition-timing-function: ease-in-out;  
+    -o-transition-timing-function: ease-in-out;  
+    -ms-transition-timing-function: ease-in-out;  
+    transition-timing-function: ease-in-out;
+    
+     -webkit-transition-duration: @duration;
+     -moz-transition-duration: @duration;
+     -o-transition-duration: @duration;
+     -ms-transition-duration: @duration;
+     transition-duration: @duration;
+}

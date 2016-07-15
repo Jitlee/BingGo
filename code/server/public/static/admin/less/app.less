@@ -1,3 +1,15 @@
+// function
+.background-image(@img, @size: cover) {
+    background-image: url("../img/@{img}");
+    background-repeat: no-repeat;
+    background-size: @size;
+    background-position: 50% 50%;
+}
+a {
+    &:hover,&:active,&:focus {
+        text-decoration: none;
+    }
+}
 // 登录box
 @media (min-width: 768px) {
     .box-center {
@@ -6,9 +18,170 @@
         }
     }
 }
-
+.box-center {
+    &.box-signin.container h1 {
+        margin-top: 20px;
+        color: #ccc;
+        font-size: -webkit-xxx-large;
+    }
+}
 // 表单验证
 .form-control.ng-invalid.ng-touched {
     border-color: @color-danger;
 }
 
+// 顶部导航条
+.navbar-nav {
+    .icon-nav-item {
+        .img-circle {
+            width: 32px;
+            height: 32px;
+        }
+        
+        &.dropdown a {
+            padding-top: 9px;
+            padding-bottom: 9px;
+        }
+    }
+}
+
+// 整体布局
+.main-container, .navbar-fixed-top {
+    margin-left: @nav-side-width;
+    .transition(margin-left);
+}
+
+.main-container {
+    margin-top: @nav-top-height;
+    width: initial;
+}
+
+.sidebar {
+    position: fixed;
+    z-index: @base-zindex + 1;
+    left: 0px;
+    top: 0;
+    bottom: 0;
+    width: @nav-side-width;
+    background-color: lighten(@color-dark, 2%);
+    
+    .sidebar-header {
+        .background-image("side-header.png");
+        background-color: @color-dark;
+        padding: @padding-xl @padding-m;
+        
+        .img-circle {
+            width: @avatar-size;
+            height: @avatar-size;
+        }
+        
+        h4 > a {
+           color: @color-text-white;
+           small {
+               display: block;
+               color: darken(@color-text-white, 30%);
+               font-size: @font-size-s;
+           } 
+        }
+    }
+    
+    .menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin-top: @padding-xl;
+        
+        li {
+            position: relative;
+            display: block;
+            
+            a {
+                font-size: @font-size-s;
+                color: @color-text-darken;
+                display: block;
+                font-weight: 600;
+                cursor: pointer;
+                
+                .menu-padding;
+                
+                .before(@color) {
+                    &:before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        width: @padding-s;
+                        background-color: @color;
+                    }
+                }
+                
+                &:hover,&.active {
+                    background-color: darken(@color-dark, 10%);
+                    color: fadeout(@color-text-darken, 20%);
+                }
+                
+                &:hover {
+                    .before(darken(@color-base, 10%));
+                }
+                
+                &.active {
+                    .before(@color-base);
+                }
+                
+                .iconfont {
+                    font-weight: normal;
+                    margin-right: @padding-l;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 414px) and (max-width: 768px) {
+    .main-container, .navbar-fixed-top {
+        margin-left: @nav-top-height;
+    }
+    
+    .sidebar {
+        width: @nav-top-height;
+        
+        .menu {
+            li {
+                
+                a {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    word-break: keep-all;
+                    
+                    .menu-padding-m; 
+                    
+                    &:hover,&.active {
+                        background-color: darken(@color-dark, 10%);
+                        color: fadeout(@color-text-darken, 20%);
+                        &:before {
+                            display: none;
+                        }
+                    }
+                    
+                    .iconfont {
+                        margin-right: @padding-xxl;
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .main-container, .navbar-fixed-top {
+        margin-left: 0;
+    }
+    
+    .sidebar {
+        display: none;
+    }
+}

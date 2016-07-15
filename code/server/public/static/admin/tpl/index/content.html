@@ -1,0 +1,14 @@
+<script src="/static/admin/tpl/index/side.html.js"></script>
+<div class="sidebar-header text-center">
+	<img src="http://www.zi-han.net/theme/hplus/img/profile_small.jpg" alt="头像" class="img-circle">
+	<h4>
+	<principal class="" property="username"></principal>
+	<small>
+		<principal property="roleName"></principal>
+		<span class="caret"></span>
+	</small>
+	</h4>
+</div>
+<ul class="menu" ng-controller="SideController">
+	<li ng-repeat="menu in menus"><a><i class="iconfont {{ menu.icon }}"></i>{{ menu.title }}</a></li>
+</ul>

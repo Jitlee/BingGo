@@ -15,9 +15,9 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" uib-collapse="isCollapsed">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">首页</a></li>
-					<li><a href="#">测试</a></li>
-					<li uib-dropdown>
+					<li><a href="#">主页</a></li>
+					<li><a href="#">刷新</a></li>
+					<li uib-dropdown class="icon-nav-item">
 				      	<a id="simple-dropdown" uib-dropdown-toggle>
 				      		<img src="http://www.zi-han.net/theme/hplus/img/profile_small.jpg" alt="头像" class="img-circle">
 				      		<b><principal class="" property="username" /></b>
@@ -35,7 +35,27 @@
 			</div>
 		</div>
 	</nav>
-	<div class="container">
+	
+	<!-- 侧边栏 -->
+	<div class="sidebar">
+		<div class="sidebar-header text-center">
+			<img src="http://www.zi-han.net/theme/hplus/img/profile_small.jpg" alt="头像" class="img-circle">
+			<h4>
+			<principal class="" property="username"></principal>
+      		<small>
+      			<principal property="roleName"></principal>
+      			<span class="caret"></span>
+      		</small>
+      		</h4>
+		</div>
+		<ul class="menu">
+			<li ng-repeat="menu in menus"><a><i class="iconfont {{ menu.icon }}"></i>{{ menu.title }}</a></li>
+		</ul>
+	</div>
+	
+	<!-- 主题内容 -->
+	<div class="main-container container">
 		{{content}}
 	</div>
+	
 </div>

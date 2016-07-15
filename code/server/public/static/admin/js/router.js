@@ -5,7 +5,7 @@
 	    "$urlRouterProvider",
 	    "angularShiroConfigProvider",
 	    function($stateProvider, $urlRouterProvider, config) {
-		$urlRouterProvider.otherwise("/");
+		$urlRouterProvider.otherwise("/index/desktop");
 		
 		// Subject must be
 		// authenticated to
@@ -19,8 +19,12 @@
 		
 		$stateProvider
 			.state("index", {
-				url: "/",
-				templateUrl: tpl("index/index")
+				url: "/index",
+				views: {
+					"": { templateUrl: tpl("index/_index") },
+					"side@index": { templateUrl: tpl("index/side") },
+					"nav@index": { templateUrl: tpl("index/nav") },
+				}
 			})
 			
 			// 登陆相关
@@ -31,6 +35,18 @@
 			.state("passport.signin", {
 				url: "/signin",
 				templateUrl: tpl("passport/signin")
+			})
+			
+			// 桌面
+			.state("index.desktop", {
+				url: "/desktop",
+				templateUrl: tpl("desktop/index")
+			})
+
+			// 关于
+			.state("index.about", {
+				url: "/about",
+				templateUrl: tpl("about/_index")
 			})
 	}]);
 	
